@@ -22,6 +22,9 @@ calculator::calculator(QWidget *parent) : QWidget(parent), ui(new Ui::calculator
     connect(ui->minus, SIGNAL(clicked(bool)), this, SLOT(subtract()));
     connect(ui->multiply, SIGNAL(clicked(bool)), this, SLOT(multiply()));
     connect(ui->divide, SIGNAL(clicked(bool)), this, SLOT(divide()));
+    connect(ui->negate, SIGNAL(clicked(bool)), this, SLOT(negate()));
+    connect(ui->bracket_open, SIGNAL(clicked(bool)), this, SLOT(bracket_open()));
+    connect(ui->bracket_close, SIGNAL(clicked(bool)), this, SLOT(bracket_close()));
 }
 
 calculator::~calculator() {
@@ -98,4 +101,16 @@ void calculator::del() {
 
 void calculator::all_clear() {
     ui->label->clear();
+}
+
+void calculator::negate() {
+    ui->label->setText(ui->label->text() + QString("-"));
+}
+
+void calculator::bracket_open() {
+    ui->label->setText(ui->label->text() + QString("("));
+}
+
+void calculator::bracket_close() {
+    ui->label->setText(ui->label->text() + QString(")"));
 }

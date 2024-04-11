@@ -36,6 +36,9 @@ private slots:
     void enter();
     void del();
     void all_clear();
+    void negate();
+    void bracket_open();
+    void bracket_close();
 
 private:
     Ui::calculator *ui;
