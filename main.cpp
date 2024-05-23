@@ -7,3 +7,7 @@ int main(int argc, char *argv[]) {
     w.show();
     return QApplication::exec();
 }
+
+
+//current operator
+//bool if operator set
