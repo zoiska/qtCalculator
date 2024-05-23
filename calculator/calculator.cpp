@@ -1,6 +1,5 @@
 #include "calculator.h"
 #include "ui_calculator.h"
-#include <string>
 
 
 calculator::calculator(QWidget *parent) : QWidget(parent), ui(new Ui::calculator) {
@@ -89,12 +88,19 @@ void calculator::add() {
 }
 
 void calculator::comma() {
-
+    ui->label->setText(ui->label->text() + QString(","));
 }
 
 void calculator::enter() {
-    double test2 = ui->label->text().toDouble();
-    ui->label->setNum(test2);
+    QString erg = ui->label->text();
+    QJSEngine engine;
+    QJSValue result = engine.evaluate(erg);
+    if(result.isNumber()) {
+        ui->label->setText(QString::number(result.toNumber()));
+    }
+    else {
+        ui->label->setText("Error");
+    }
 }
 
 void calculator::del() {

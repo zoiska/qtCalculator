@@ -12,16 +12,18 @@ find_package(Qt6 COMPONENTS
         Core
         Gui
         Widgets
+        Qml
         REQUIRED)
 
 add_executable(qtCalculator main.cpp
         calculator/calculator.h
         calculator/calculator.cpp)
+
 target_link_libraries(qtCalculator
         Qt::Core
         Qt::Gui
         Qt::Widgets
-)
+        Qt::Qml)
 
 if (WIN32 AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
     set(DEBUG_SUFFIX)

@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QString>
 #include <string>
+#include <QJSEngine>
 
 
 QT_BEGIN_NAMESPACE
